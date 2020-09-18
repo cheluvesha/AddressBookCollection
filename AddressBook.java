@@ -32,6 +32,7 @@ public class AddressBook implements AddressBookInfo {
         System.out.println("Enter the Person Phone Number: ");
         long phoneNumber = scan.nextLong();
         System.out.println("Enter the Zip code: ");
+        scan.nextLine();
         String zip = scan.nextLine();
         Person person = new Person(firstName,lastName,address,city,state,phoneNumber,zip);
         book.add(person);
@@ -46,20 +47,20 @@ public class AddressBook implements AddressBookInfo {
                 Person person = book.get(search);
                 System.out.println("Hi  "+person.getFirstName()+" Please edit your details");
                 System.out.println("Hi Person "+person.getFirstName()+" Please edit your address");
-                scan.next();
                 String address = scan.nextLine();
                 person.setAddress(address);
                 System.out.println("Hi  "+person.getFirstName()+" Please edit your city");
-                String city = scan.next();
+                String city = scan.nextLine();
                 person.setCity(city);
                 System.out.println("Hi "+person.getFirstName()+" Please edit your state");
-                String state = scan.next();
+                String state = scan.nextLine();
                 person.setState(state);
                 System.out.println("Hi "+person.getFirstName()+" Please edit your phone number");
                 long phone = scan.nextLong();
                 person.setPhoneNumber(phone);
                 System.out.println("Hi "+person.getFirstName()+" Please edit your zip");
-                String zip = scan.next();
+                scan.nextLine();
+                String zip = scan.nextLine();
                 person.setZip(zip);
                 System.out.println("Hi "+person.getFirstName()+" Successfully you have updated your details. ");
             }
