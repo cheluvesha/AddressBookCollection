@@ -21,14 +21,14 @@ public class AddressBook implements AddressBookInfo {
         System.out.println("Enter the Person Phone Number: ");
         long phoneNumber = scan.nextLong();
         System.out.println("Enter the Zip code: ");
-        String zip = scan.next();
-        UC3.editBook.Person person = new Person(firstName,lastName,address,city,state,phoneNumber,zip);
+        String zip = scan.nextLine();
+        Person person = new Person(firstName,lastName,address,city,state,phoneNumber,zip);
         book.add(person);
         System.out.println("Successfully Added!!");
     }
     @Override
     public void edit(String firstName) {
-        for( int search = 0 ; search < book.size() ; search++ ) {
+        for( int search = 0; search < book.size(); search++ ) {
 
             if( book.get(search).getFirstName().equalsIgnoreCase(firstName)) {
                 Person person = book.get(search);
@@ -52,8 +52,19 @@ public class AddressBook implements AddressBookInfo {
                 System.out.println("Hi "+person.getFirstName()+" Successfully you have updated your details. ");
             }
         }
+    }
+    @Override
+    public void delete(String firstName) {
+        for ( int select = 0; select < book.size(); select++) {
+            if(book.get(select).getFirstName().equalsIgnoreCase(firstName)) {
+                Person person = book.get(select);
+                book.remove(person);
+                System.out.println("Successfully Deleted!");
+            }
+        }
 
     }
+
     public void display() {
         for( Person person : book )
             System.out.println(person);
