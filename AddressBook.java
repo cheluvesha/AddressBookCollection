@@ -21,8 +21,9 @@ public class AddressBook implements AddressBookInfo {
         System.out.println("Enter the Person Phone Number: ");
         long phoneNumber = scan.nextLong();
         System.out.println("Enter the Zip code: ");
-        String zip = scan.next();
-        UC3.editBook.Person person = new Person(firstName,lastName,address,city,state,phoneNumber,zip);
+        scan.nextLine();
+        String zip = scan.nextLine();
+        Person person = new Person(firstName,lastName,address,city,state,phoneNumber,zip);
         book.add(person);
         System.out.println("Successfully Added!!");
     }
@@ -47,7 +48,8 @@ public class AddressBook implements AddressBookInfo {
                 long phone = scan.nextLong();
                 person.setPhoneNumber(phone);
                 System.out.println("Hi "+person.getFirstName()+" Please edit your zip");
-                String zip = scan.next();
+                scan.nextLine();
+                String zip = scan.nextLine();
                 person.setZip(zip);
                 System.out.println("Hi "+person.getFirstName()+" Successfully you have updated your details. ");
             }
