@@ -8,4 +8,7 @@ public interface AddressBookInfo {
     public void sortState();
     public void viewByCity(String city);
     public void viewByState(String state);
+    public void searchPersonInCity(String firstName);
+    public void searchPersonInState(String firstName);
+
 }

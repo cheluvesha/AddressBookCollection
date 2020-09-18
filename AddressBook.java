@@ -47,21 +47,20 @@ public class AddressBook implements AddressBookInfo {
             if( book.get(search).getFirstName().equalsIgnoreCase(firstName)) {
                 Person person = book.get(search);
                 System.out.println("Hi  "+person.getFirstName()+" Please edit your details");
-                System.out.println("Hi"+person.getFirstName()+" Please edit your address");
-                scan.next();
+                System.out.println("Hi "+person.getFirstName()+" Please edit your address");
                 String address = scan.nextLine();
                 person.setAddress(address);
                 System.out.println("Hi  "+person.getFirstName()+" Please edit your city");
-                String city = scan.next();
+                String city = scan.nextLine();
                 person.setCity(city);
                 System.out.println("Hi "+person.getFirstName()+" Please edit your state");
-                String state = scan.next();
+                String state = scan.nextLine();
                 person.setState(state);
                 System.out.println("Hi "+person.getFirstName()+" Please edit your phone number");
                 long phone = scan.nextLong();
                 person.setPhoneNumber(phone);
                 System.out.println("Hi "+person.getFirstName()+" Please edit your zip");
-                String zip = scan.next();
+                String zip = scan.nextLine();
                 person.setZip(zip);
                 System.out.println("Hi "+person.getFirstName()+" Successfully you have updated your details. ");
             }
@@ -120,6 +119,19 @@ public class AddressBook implements AddressBookInfo {
     public void viewByState(String state) {
         List<Person> personList = book.stream().filter(person1 -> person1.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
         personList.stream().forEach(System.out::println);
+    }
+
+    @Override
+    public void searchPersonInCity(String firstName) {
+        List<Person> personList = book.stream().filter(person1 -> person1.getFirstName().equalsIgnoreCase(firstName)).collect(Collectors.toList());
+        personList.stream().forEach(System.out::println);
+    }
+
+    @Override
+    public void searchPersonInState(String firstName) {
+        List<Person> personList = book.stream().filter(person1 -> person1.getFirstName().equalsIgnoreCase(firstName)).collect(Collectors.toList());
+        personList.stream().forEach(System.out::println);
+
     }
 
     public void display() {
