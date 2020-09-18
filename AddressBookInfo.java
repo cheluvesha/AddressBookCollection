@@ -6,5 +6,6 @@ public interface AddressBookInfo {
     public void sortZip();
     public void sortCity();
     public void sortState();
+    public void viewByCity(String city);
+    public void viewByState(String state);
 }
-

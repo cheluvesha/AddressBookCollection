@@ -10,7 +10,7 @@ public class AddressBookMain {
             System.out.println("Hello Enter your option to perform actions: \n[ press 1 to add new person"+
                     "\npress 2 to update/edit details \npress 3 to Display details \npress 4 to Delete your details " +
                     "\npress 5 to sort the details according to person firstname \npress 6 to sort on the basis" +
-                    "of zip, state, or city \npress 7 to Exit. ]");
+                    "of zip, state, or city \npress 7 to view Person by City or State \npress 8 to Exit. ]");
             int choice = scan.nextInt();
             switch (choice) {
                 case 1 :
@@ -49,6 +49,22 @@ public class AddressBookMain {
                     else {
                         addressBook.sortState();
                         break;
+                    }
+                case 7 :
+                    System.out.println("Press 1 to view person by city \nPress 2 to view person by state");
+                    int viewChoice = scan.nextInt();
+                    if( viewChoice == 1) {
+                        System.out.println("Please Enter the City name: ");
+                        String city = scan.next();
+                        addressBook.viewByCity(city);
+                        break;
+                    }
+                    else {
+                        System.out.println("Please Enter the State name: ");
+                        String state = scan.next();
+                        addressBook.viewByState(state);
+                        break;
+
                     }
                 default:
                     status = false;

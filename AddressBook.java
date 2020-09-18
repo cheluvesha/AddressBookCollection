@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook implements AddressBookInfo {
 
@@ -107,6 +108,18 @@ public class AddressBook implements AddressBookInfo {
         book.stream()
                 .sorted((p1, p2)->p1.getState().compareToIgnoreCase(p2.getState()))
                 .forEach(System.out::println);
+    }
+
+    @Override
+    public void viewByCity(String city) {
+        List<Person> personList = book.stream().filter(person1 -> person1.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
+        personList.stream().forEach(System.out::println);
+    }
+
+    @Override
+    public void viewByState(String state) {
+        List<Person> personList = book.stream().filter(person1 -> person1.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
+        personList.stream().forEach(System.out::println);
     }
 
     public void display() {
