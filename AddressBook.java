@@ -60,6 +60,7 @@ public class AddressBook implements AddressBookInfo {
                 long phone = scan.nextLong();
                 person.setPhoneNumber(phone);
                 System.out.println("Hi "+person.getFirstName()+" Please edit your zip");
+                scan.nextLine();
                 String zip = scan.nextLine();
                 person.setZip(zip);
                 System.out.println("Hi "+person.getFirstName()+" Successfully you have updated your details. ");
