@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook implements AddressBookInfo {
-    List<UC3.editBook.Person> book = new ArrayList<>();
+    List<Person> book = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
     @Override
     public void add() {
@@ -21,8 +21,9 @@ public class AddressBook implements AddressBookInfo {
         System.out.println("Enter the Person Phone Number: ");
         long phoneNumber = scan.nextLong();
         System.out.println("Enter the Zip code: ");
+        scan.nextLine();
         String zip = scan.nextLine();
-        UC3.editBook.Person person = new Person(firstName,lastName,address,city,state,phoneNumber,zip);
+        Person person = new Person(firstName,lastName,address,city,state,phoneNumber,zip);
         book.add(person);
         System.out.println("Successfully Added!!");
     }
