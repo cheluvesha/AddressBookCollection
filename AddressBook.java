@@ -64,7 +64,6 @@ public class AddressBook implements AddressBookInfo {
         }
 
     }
-
     public void display() {
         for( Person person : book )
             System.out.println(person);
