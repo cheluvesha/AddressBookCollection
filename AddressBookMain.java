@@ -7,15 +7,22 @@ public class AddressBookMain {
         AddressBook addressBook = new AddressBook();
 
         while( status ) {
-            System.out.println("Hello Enter your option to perform actions: \n press 1 to add new person" +
-                    " \n press 2 to display details \n press 5 to quit");
+            System.out.println("Hello Enter your option to perform actions: \n[ press 1 to add new person"+
+                     "\npress 2 to update/edit details \npress 3 to Display details \npress 5 to quit ]");
             int choice = scan.nextInt();
             switch (choice) {
-                case 1 : addressBook.add();
-                        break;
-                case 2 : addressBook.display();
-                        break;
-                default: status = false;
+                case 1 :
+                    addressBook.add();
+                    break;
+                case 2 :
+                    System.out.println("Hello Please enter your firstname to update your details");
+                    String firstName = scan.next();
+                    addressBook.edit(firstName);
+                    break;
+                case 3 :
+                    addressBook.display();
+                default:
+                    status = false;
             }
         }
     }
