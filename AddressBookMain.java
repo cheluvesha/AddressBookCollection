@@ -9,7 +9,8 @@ public class AddressBookMain {
         while( status ) {
             System.out.println("Hello Enter your option to perform actions: \n[ press 1 to add new person"+
                     "\npress 2 to update/edit details \npress 3 to Display details \npress 4 to Delete your details " +
-                    "\npress 5 to sort the details according to person firstname \n press 6 to quit ]");
+                    "\npress 5 to sort the details according to person firstname \npress 6 to sort on the basis" +
+                    "of zip, state, or city \npress 7 to Exit. ]");
             int choice = scan.nextInt();
             switch (choice) {
                 case 1 :
@@ -32,6 +33,23 @@ public class AddressBookMain {
                     System.out.println("Sorted Person details: ");
                     addressBook.sortAlphabetically();
                     break;
+                case 6 :
+                    System.out.println("Hi!! on what basis you would like to sort the details \npress 1 to sort " +
+                            "on the basis of Zip \npress 2 to sort on the basis of city \npress 3 to sort on the " +
+                            "basis of state");
+                    int optionToSort = scan.nextInt();
+                    if(optionToSort == 1) {
+                        addressBook.sortZip();
+                        break;
+                    }
+                    else if(optionToSort == 2) {
+                        addressBook.sortCity();
+                        break;
+                    }
+                    else {
+                        addressBook.sortState();
+                        break;
+                    }
                 default:
                     status = false;
             }

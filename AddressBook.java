@@ -32,6 +32,7 @@ public class AddressBook implements AddressBookInfo {
         System.out.println("Enter the Person Phone Number: ");
         long phoneNumber = scan.nextLong();
         System.out.println("Enter the Zip code: ");
+        scan.nextLine();
         String zip = scan.nextLine();
         Person person = new Person(firstName,lastName,address,city,state,phoneNumber,zip);
         book.add(person);
@@ -45,7 +46,7 @@ public class AddressBook implements AddressBookInfo {
             if( book.get(search).getFirstName().equalsIgnoreCase(firstName)) {
                 Person person = book.get(search);
                 System.out.println("Hi  "+person.getFirstName()+" Please edit your details");
-                System.out.println("Hi Person "+person.getFirstName()+" Please edit your address");
+                System.out.println("Hi"+person.getFirstName()+" Please edit your address");
                 scan.next();
                 String address = scan.nextLine();
                 person.setAddress(address);
@@ -85,6 +86,27 @@ public class AddressBook implements AddressBookInfo {
                 .forEach(System.out::println);
          /* Collections.sort(book,(p1, p2)  -> p1.getFirstName().compareTo(p2.getFirstName()));
         System.out.println(book); */
+    }
+
+    @Override
+    public void sortZip() {
+        book.stream()
+                .sorted((p1, p2)->p1.getZip().compareTo(p2.getZip()))
+                .forEach(System.out::println);
+    }
+
+    @Override
+    public void sortCity() {
+        book.stream()
+                .sorted((p1, p2)->p1.getCity().compareToIgnoreCase(p2.getCity()))
+                .forEach(System.out::println);
+    }
+
+    @Override
+    public void sortState() {
+        book.stream()
+                .sorted((p1, p2)->p1.getState().compareToIgnoreCase(p2.getState()))
+                .forEach(System.out::println);
     }
 
     public void display() {
