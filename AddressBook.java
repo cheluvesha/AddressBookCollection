@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -114,12 +114,18 @@ public class AddressBook implements AddressBookInfo {
     public void viewByCity(String city) {
         List<Person> personList = book.stream().filter(person1 -> person1.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
         personList.stream().forEach(System.out::println);
+        Map<String, Person> map = personList.stream()
+               .collect(Collectors.toMap(Person::getFirstName, person -> person));
+        System.out.println(map);
     }
 
     @Override
     public void viewByState(String state) {
         List<Person> personList = book.stream().filter(person1 -> person1.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
         personList.stream().forEach(System.out::println);
+        Map<String, Person> map = personList.stream()
+                .collect(Collectors.toMap(Person::getFirstName, person -> person));
+        System.out.println(map);
     }
 
     public void display() {
