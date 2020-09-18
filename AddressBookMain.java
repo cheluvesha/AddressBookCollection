@@ -9,7 +9,7 @@ public class AddressBookMain {
         while( status ) {
             System.out.println("Hello Enter your option to perform actions: \n[ press 1 to add new person"+
                     "\npress 2 to update/edit details \npress 3 to Display details \npress 4 to Delete your details " +
-                    "\npress 5 to quit ]");
+                    "\npress 5 to sort the details according to person firstname \n press 6 to quit ]");
             int choice = scan.nextInt();
             switch (choice) {
                 case 1 :
@@ -27,6 +27,10 @@ public class AddressBookMain {
                     System.out.println("Hello Please enter your firstname to delete your details");
                     String firstname = scan.next();
                     addressBook.delete(firstname);
+                    break;
+                case 5 :
+                    System.out.println("Sorted Person details: ");
+                    addressBook.sortAlphabetically();
                     break;
                 default:
                     status = false;

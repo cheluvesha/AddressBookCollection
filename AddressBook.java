@@ -6,6 +6,7 @@ public class AddressBook implements AddressBookInfo {
 
     List<Person> book = new ArrayList<>();
     Scanner scan = new Scanner(System.in);
+
     @Override
     public void add() {
         System.out.println("Enter the Person Firstname: ");
@@ -36,6 +37,7 @@ public class AddressBook implements AddressBookInfo {
         book.add(person);
         System.out.println("Successfully Added!!");
     }
+
     @Override
     public void edit(String firstName) {
         for( int search = 0; search < book.size(); search++ ) {
@@ -63,6 +65,7 @@ public class AddressBook implements AddressBookInfo {
             }
         }
     }
+
     @Override
     public void delete(String firstName) {
         for ( int select = 0; select < book.size(); select++) {
@@ -73,6 +76,15 @@ public class AddressBook implements AddressBookInfo {
             }
         }
 
+    }
+
+    @Override
+    public void sortAlphabetically() {
+        book.stream()
+                .sorted((p1, p2)->p1.getFirstName().compareToIgnoreCase(p2.getFirstName()))
+                .forEach(System.out::println);
+         /* Collections.sort(book,(p1, p2)  -> p1.getFirstName().compareTo(p2.getFirstName()));
+        System.out.println(book); */
     }
 
     public void display() {
