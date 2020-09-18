@@ -19,7 +19,7 @@ public class AddressBookMain {
                     break;
                 case 2 :
                     System.out.println("Hello Please enter your firstname to update your details");
-                    String firstName = scan.nextLine();
+                    String firstName = scan.next();
                     addressBook.edit(firstName);
                     break;
                 case 3 :
@@ -27,7 +27,7 @@ public class AddressBookMain {
                     break;
                 case 4 :
                     System.out.println("Hello Please enter your firstname to delete your details");
-                    String firstname = scan.nextLine();
+                    String firstname = scan.next();
                     addressBook.delete(firstname);
                     break;
                 case 5 :
@@ -56,13 +56,13 @@ public class AddressBookMain {
                     int viewChoice = scan.nextInt();
                     if( viewChoice == 1) {
                         System.out.println("Please Enter the City name: ");
-                        String city = scan.nextLine();
+                        String city = scan.next();
                         addressBook.viewByCity(city);
                         break;
                     }
                     else {
                         System.out.println("Please Enter the State name: ");
-                        String state = scan.nextLine();
+                        String state = scan.next();
                         addressBook.viewByState(state);
                         break;
 
@@ -72,13 +72,13 @@ public class AddressBookMain {
                     int searchChoice = scan.nextInt();
                     if( searchChoice == 1) {
                         System.out.println("Please enter firstname to search in city");
-                        String name = scan.nextLine();
+                        String name = scan.next();
                         addressBook.searchPersonInCity(name);
                         break;
                     }
                     else {
                         System.out.println("Please enter firstname to search in state");
-                        String name = scan.nextLine();
+                        String name = scan.next();
                         addressBook.searchPersonInState(name);
                         break;
                     }
